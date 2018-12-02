@@ -24,7 +24,7 @@ This list is ordered by priority, in case we're short on time we should pay more
   * Carry over - The money you didn’t spend from the previous date selected is shown as income on the next date’s balance
   * Budget mode - no matter how much income you add, the total amount to spend never increases above the monthly budget, except for the carry over
 * Filters - check that you can filter by account (cash, payment card, etc) or by day/week/month/year or chose one day in the calendar 
-  * if you filter by day and you have data from different days, you can swipe the dashboard left or right to see the details of each day
+  * If you filter by day and you have data from different days, you can swipe the dashboard left or right to see the details of each day
 * Add expense - Check that you can add an expense by inputting an amount and choosing a category.
   * You can add an expense by using the “EXPENSE” button or tapping one of the categories in the dashboard
   * You can add categories when adding an expense.
@@ -41,13 +41,7 @@ This list is ordered by priority, in case we're short on time we should pay more
 * After adding an expense or income, make sure the balance is updated
   * in the dashboard, the total income is shown in green and the total expenses is shown in red
   * The Balance is shown in green if positive, red if negative
-* you can add, edit and delete accounts
-  * you can chose the currency
-  * go to the currency exchange rate screen
-  * chose an initial balance and its date
-  * you can chose to include it in the balance or not
-  * you can chose the icon
-  * you can merge accounts - a backup will be created that you can rollback to
+
 
 ## Rest of the regression suite
 
@@ -59,3 +53,28 @@ This list is ordered by priority, in case we're short on time we should pay more
   * you can merge categories. When you do this, a backup will be created with the previous data that you can go back to
 * You can add exchange rates by tapping currencies and selecting the currency you want to add
   * when you change the currency of an account, make sure the exchange rate calculation is made
+* you can add, edit and delete accounts
+  * you can chose the currency
+  * go to the currency exchange rate screen
+  * chose an initial balance and its date
+  * you can chose to include it in the balance or not
+  * you can chose the icon
+  * you can merge accounts - a backup will be created that you can rollback to
+  
+
+## Non-functional tests
+
+All of the previous tests are functional tests, they are directly related to the features of the app.
+
+Non-functional tests are also very important, such as the performance of the app, usability testing and security testing (making sure our users data is saved and transmitted in a safe and encrypted way.
+
+Although not as critical to run on every release due to their architectural nature, non-functional tests cannot be forgotten and should be run with some frequency.
+
+In the case we have an app on which many users are doing the same action at the same time we should run some stress testing to make sure our architecture is scalable and never stops working no matter the usage.
+
+Since we're talking about mobile apps, we should take into account the testing on different devices and platforms. Nowadays each mobile platform has several versions of OS's being used so we need to make sure the most widely used versions are supported by our app. 
+
+In order to know the usage I would check some of these websites as example:
+* https://data.apteligent.com/ios/
+* https://developer.android.com/about/dashboards/
+* http://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide
