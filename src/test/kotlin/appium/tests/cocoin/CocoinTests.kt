@@ -4,6 +4,7 @@ import appium.pageobjects.cocoin.MainPage
 import appium.pageobjects.cocoin.OnboardingPage
 import appium.pageobjects.cocoin.PinPage
 import appium.tests.BaseTest
+import io.qameta.allure.Description
 import org.testng.Assert
 import org.testng.annotations.Test
 
@@ -12,6 +13,7 @@ class CocoinTests : BaseTest(){
     var pinCode = "1111"
 
     @Test
+    @Description("Goes through the onboarding process and creates a pin")
     fun onBoardingAndPinCreationTest(){
         var onboardingPage = OnboardingPage(driver)
         Assert.assertTrue(onboardingPage.isFirstScreenLoading(), "FIRST SCREEN IS NOT SHOWING")
@@ -32,6 +34,7 @@ class CocoinTests : BaseTest(){
     }
 
     @Test
+    @Description("checks that the categories change when we select different ones")
     fun categoriesAreChangingTest(){
         onBoardingAndPinCreationTest()
         var mainPage = MainPage(driver)
@@ -41,6 +44,7 @@ class CocoinTests : BaseTest(){
     }
 
     @Test
+    @Description("Creates and entry on the app and checks that it appears")
     fun createAnEntryOnTheBooking(){
         onBoardingAndPinCreationTest()
         var mainPage = MainPage(driver)
