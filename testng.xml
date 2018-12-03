@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Full Suite" verbose="1">
-    <test name="all-packages">
+    <test name="all-tests">
         <packages>
-            <package name=".*" />
+            <package name="appium.tests.*" />
         </packages>
     </test>
 </suite>

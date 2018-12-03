@@ -169,3 +169,7 @@ The UI is horrible and the UX even worse. It should follow the platform's design
 * IDs on the app
 
 It was very hard to find good ids to create good selectors. We should ask the developers to give us ids.
+
+* Deep links and activities
+
+We should have deeplinks or activities in the app, this way we can access any part of the app without going through the onboarding and login processes
