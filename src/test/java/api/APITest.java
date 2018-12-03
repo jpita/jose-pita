@@ -34,7 +34,6 @@ public class APITest {
         response.then().statusCode(200);
         idOfCreatedBooking = response.then().extract().path("bookingid");
         given().get(baseURL + idOfCreatedBooking).then().body("firstname", equalTo("jose"));
-        System.out.println("idOfCreatedBooking= " + idOfCreatedBooking);
     }
 
     @Test
@@ -59,6 +58,8 @@ public class APITest {
                 .put(baseURL + idOfCreatedBooking);
 //        check for 200 ok response
         response.then().statusCode(200);
+        //check if the booking was changed
+        given().get(baseURL + idOfCreatedBooking).then().body("firstname", equalTo("edited"));
 //        delete the edited booking and check for 201
         given().with().header("Authorization", "Basic YWRtaW46cGFzc3dvcmQxMjM=")
                 .delete(baseURL + idOfCreatedBooking).then().statusCode(201);
