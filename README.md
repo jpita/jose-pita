@@ -172,4 +172,7 @@ It was very hard to find good ids to create good selectors. We should ask the de
 
 * Deep links and activities
 
-We should have deeplinks or activities in the app, this way we can access any part of the app without going through the onboarding and login processes
+We should have deeplinks or activities in the app, this way we can access any part of the app without going through the onboarding and login processes.
+
+I tried finding the activity with `adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
+` and putting it on the desired capabilities but got a `Permission Denial: starting Intent` error.
