@@ -120,7 +120,7 @@ Once you have everything installed you need to:
 * clone the repo -  `git clone git@github.com:jpita/jose-pita.git`, and `cd` into it
 * run `appium-doctor` to make sure everything is well installed. You should see something like this ![appium doctor](https://i0.wp.com/www.softwaretestingmaterial.com/wp-content/uploads/2017/09/Appium-With-NodeJs-9.png?ssl=1) 
 * run `gradle build`
-* if the tests don't run with the previous steps, do `gradle clean test`
+* if the tests don't run with the previous steps, do `gradle clean test`. If for some reason you get a `InvalidServerInstanceException` error, please start an appium server on a terminal by running `appium`. After trying to install the API playground you recommended I messed up my node installation and now appium can't be started programmatically.
 * once the tests stop running, run `gradle allureReport`
 
 * followed by `gradle allureServe`
