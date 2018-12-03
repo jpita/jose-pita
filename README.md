@@ -176,3 +176,23 @@ We should have deeplinks or activities in the app, this way we can access any pa
 
 I tried finding the activity with `adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
 ` and putting it on the desired capabilities but got a `Permission Denial: starting Intent` error.
+
+# 3 - API Test
+
+* I couldn't install the api playground mentioned in the test, [had some issues with sqlite3](https://gist.github.com/jpita/3a379a60f855a142adeca47c8f2bdcf0).
+
+* I used [restful-booker](https://restful-booker.herokuapp.com/apidoc/index.html), an API playground I use during my workshops.
+  * [Here](https://github.com/mwinteringham/restful-booker) you can find all the instructions to install and run it
+  
+## Tests Cases
+This API is a service to create bookings for an hotel
+* Get all the bookings
+* Create booking and check if it was created
+* Edit the previously created booking
+* Delete the previously created booking
+
+Notes:
+* Most of the http status codes of this API are wrong in my point of view
+  * we get a 200 when creating a new booking, should be 201
+  * we get a 201 on the delete, should be a 200 or 204
+  
