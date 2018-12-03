@@ -24,9 +24,13 @@ public class AppiumServerChecker {
     }
 
     public static void startAppiumServer(URL appiumServerURL) throws Exception {
-        if(!isAppiumRunning(appiumServerURL)){
-            service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder());
-            service.start();
+        try {
+            if (!isAppiumRunning(appiumServerURL)) {
+                service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder());
+                service.start();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
         }
 
     }
