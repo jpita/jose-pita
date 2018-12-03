@@ -118,7 +118,7 @@ In order to run the tests you need to have installed:
 Once you have everything installed you need to:
 
 * clone the repo -  `git clone git@github.com:jpita/jose-pita.git`, and `cd` into it
-* run `appium-doctor` to make sure everything is well installed.
+* run `appium-doctor` to make sure everything is well installed. You should see something like this ![appium doctor](https://i0.wp.com/www.softwaretestingmaterial.com/wp-content/uploads/2017/09/Appium-With-NodeJs-9.png?ssl=1) 
 * run `gradle build`
 * if the tests don't run with the previous steps, do `gradle clean test`
 * once the tests stop running, run `gradle allureReport`
