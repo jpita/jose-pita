@@ -120,7 +120,7 @@ Once you have everything installed you need to:
 * clone the repo -  `git clone git@github.com:jpita/jose-pita.git`, and `cd` into it
 * run `appium-doctor` to make sure everything is well installed. You should see something like this ![appium doctor](https://i0.wp.com/www.softwaretestingmaterial.com/wp-content/uploads/2017/09/Appium-With-NodeJs-9.png?ssl=1) 
 * run `gradle build`
-* if the tests don't run with the previous steps, do `gradle clean test`
+* if the tests don't run with the previous steps, do `gradle clean test`. If for some reason you get a `InvalidServerInstanceException` error, please start an appium server on a terminal by running `appium`. After trying to install the API playground you recommended I messed up my node installation and now appium can't be started programmatically.
 * once the tests stop running, run `gradle allureReport`
 
 * followed by `gradle allureServe`
@@ -187,12 +187,22 @@ I tried finding the activity with `adb shell dumpsys window windows | grep -E 'm
 ## Tests Cases
 This API is a service to create bookings for an hotel
 * Get all the bookings
-* Create booking and check if it was created
-* Edit the previously created booking
-* Delete the previously created booking
+* [Create booking and check if it was created](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L29)
+* [Edit the previously created booking](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L49)
+* [Delete the previously created booking](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L41)
 
 Notes:
 * Most of the http status codes of this API are wrong in my point of view
   * we get a 200 when creating a new booking, should be 201
   * we get a 201 on the delete, should be a 200 or 204
+  * There are some bugs left on purpose on the playground, regarding missing fields in the json and field format. Would be fun to play around with some of those but I didn't have the time.
+  
+  
+# Feedback
+
+This was by far the longest test I've ever done in my life.
+
+That being sad, I had a lot of fun doing it because it helped me learn some new things and solve some issues I'd been struggling with in my own framework.
+
+I hope this was more or less what you expected, can't wait to hear back from you.
   
