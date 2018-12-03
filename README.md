@@ -187,12 +187,22 @@ I tried finding the activity with `adb shell dumpsys window windows | grep -E 'm
 ## Tests Cases
 This API is a service to create bookings for an hotel
 * Get all the bookings
-* Create booking and check if it was created
-* Edit the previously created booking
-* Delete the previously created booking
+* [Create booking and check if it was created](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L29)
+* [Edit the previously created booking](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L49)
+* [Delete the previously created booking](https://github.com/jpita/jose-pita/blob/master/src/test/java/api/APITest.java#L41)
 
 Notes:
 * Most of the http status codes of this API are wrong in my point of view
   * we get a 200 when creating a new booking, should be 201
   * we get a 201 on the delete, should be a 200 or 204
+  * There are some bugs left on purpose on the playground, regarding missing fields in the json and field format. Would be fun to play around with some of those but I didn't have the time.
+  
+  
+# Feedback
+
+This was by far the longest test I've ever done in my life.
+
+That being sad, I had a lot of fun doing it because it helped me learn some new things and solve some issues I'd been struggling with in my own framework.
+
+I hope this was more or less what you expected, can't wait to hear back from you.
   
