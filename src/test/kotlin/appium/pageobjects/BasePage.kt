@@ -3,7 +3,6 @@ package appium.pageobjects
 import appium.TouchActions
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
-import io.appium.java_client.pagefactory.AndroidFindBy
 import io.appium.java_client.pagefactory.AppiumFieldDecorator
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -49,8 +48,8 @@ open class BasePage(val driver: AppiumDriver<*>) {
         TouchActions().swipeByCoordinates(driver,leftEdgeOfTheScreen, height/2, rightEdgeOfTheScreen, height/2)
     }
 
-    fun insertNumberOnTheOnScreenKeyboard(pinCode: String) {
-        for(number in pinCode){
+    fun insertNumberOnTheOnScreenKeyboard(number: String) {
+        for (number in number) {
             for (el in driver.findElementsByClassName("android.widget.TextView"))
             {
                 if(el.text==number.toString()){

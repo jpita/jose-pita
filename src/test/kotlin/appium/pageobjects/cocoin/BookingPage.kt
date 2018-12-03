@@ -5,8 +5,8 @@ import io.appium.java_client.AppiumDriver
 
 class BookingPage(driver: AppiumDriver<*>) : BasePage(driver)  {
 
-    fun isExpenseInBooking(): Boolean {
-        return driver.findElementById("com.nightonke.cocoin:id/expanse").text.trim()=="$10"
+    fun isExpenseInBooking(amount: String): Boolean {
+        return driver.findElementById("com.nightonke.cocoin:id/expanse").text.trim() == "$$amount"
     }
 
 }

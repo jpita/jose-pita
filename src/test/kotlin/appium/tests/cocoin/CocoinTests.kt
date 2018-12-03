@@ -49,17 +49,14 @@ class CocoinTests : BaseTest(){
         onBoardingAndPinCreationTest()
         var mainPage = MainPage(driver)
         mainPage.selectCategory("Lunch")
-        mainPage.insertNumberOnTheOnScreenKeyboard("10")
+        val amount = "10"
+        mainPage.insertNumberOnTheOnScreenKeyboard(amount)
         mainPage.submitExpense()
-//        text()="Save successfully!"
-//        couldn't find the success popup
-        try {
-            print(driver!!.findElementByXPath("//*[contains(text(), 'Save')]").text)
-        }catch (e: Exception){
-            print("couldn't find the element")
-        }
+//      @text="Save successfully!"
+//      this is a good place to put an assert on the popup but
+//      I couldn't find it with Appium-desktop nor with uiautomatorviewer
         var bookingPage = mainPage.enterBookingView()
-        Assert.assertTrue(bookingPage.isExpenseInBooking(), "Booking is not being saved")
+        Assert.assertTrue(bookingPage.isExpenseInBooking(amount), "Booking is not being saved")
 
 
 
