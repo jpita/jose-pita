@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.FluentWait
 
 open class BasePage(val driver: AppiumDriver<*>) {
 
-    var width = driver.manage().window().getSize().width
-    var height = driver.manage().window().getSize().height
+    var width = driver.manage().window().size.width
+    var height = driver.manage().window().size.height
     var rightEdgeOfTheScreen = width-200
     var leftEdgeOfTheScreen = 100
 
@@ -49,10 +49,10 @@ open class BasePage(val driver: AppiumDriver<*>) {
     }
 
     fun insertNumberOnTheOnScreenKeyboard(number: String) {
-        for (number in number) {
+        for (n in number) {
             for (el in driver.findElementsByClassName("android.widget.TextView"))
             {
-                if(el.text==number.toString()){
+                if (el.text == n.toString()) {
                     el.click()
                     break
                 }
