@@ -88,12 +88,13 @@ Cocoin is a similar app to Monefy, so the tests would be similar.
 
 * Login and sign up process
 * Add, edit and delete expenses and incomes
+* categories and accounts
 
 I only had time to automate 3 tests:
 (add link to the files on gh)
-* onBoardingAndPinCreationTest  - this test goes throught the onboarding process and creates a pin for the user
-* categoriesAreChangingTest - this test checks if the categories of an expense change correctly
-* createAnEntryOnTheBooking - this test checks if an expense is added correctly to the app
+* [onBoardingAndPinCreationTest](https://github.com/jpita/jose-pita/blob/master/src/test/kotlin/appium/tests/cocoin/CocoinTests.kt#L17)  - this test goes through the onboarding process and creates a pin for the user
+* [categoriesAreChangingTest](https://github.com/jpita/jose-pita/blob/master/src/test/kotlin/appium/tests/cocoin/CocoinTests.kt#L38) - this test checks if the categories of an expense change correctly
+* [createAnEntryOnTheBooking](https://github.com/jpita/jose-pita/blob/master/src/test/kotlin/appium/tests/cocoin/CocoinTests.kt#L47) - this test checks if an expense is added correctly to the app
 
 ## Technologies used 
 
@@ -104,42 +105,31 @@ Appium does the hardwork communicating and driving the phone.
 I used the page object test design pattern to organize my tests.
 
 In order to run the tests you need to have installed:
-* nodeJS
-* npm
-* Appium
-* Appium doctor
-* JDK
-* Android SDK
-* Gradle
-* a real phone connected to the PC. The android version of the phone I used is 8, if you don't have a device with that version you need to change the version HERE (put the link to the file on GH)
+* [nodeJS](https://nodejs.org/en/download/)
+* [npm](https://www.npmjs.com/get-npm)
+* [Appium](http://appium.io/docs/en/about-appium/getting-started)
+* [Appium doctor](https://www.npmjs.com/package/appium-doctor)
+* [JDK](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html)
+* [Android SDK](https://developer.android.com/studio/)
+* [Gradle](https://gradle.org/install/)
+* a real phone connected to the PC
+  * The android version of the phone I used is 8, if you don't have a device with that version you need to change the version [HERE](https://github.com/jpita/jose-pita/blob/master/src/test/kotlin/appium/tests/BaseTest.kt#L33). You can also have an emulator running on you computer then the tests will run on the emulator.
 
 Once you have everything installed you need to:
 
-* clone the repo and `cd` into it
+* clone the repo -  `git clone git@github.com:jpita/jose-pita.git`, and `cd` into it
+* run `appium-doctor` to make sure everything is well installed.
+* run `gradle build`
+* if the tests don't run with the previous steps, do `gradle clean test`
+* once the tests stop running, run `gradle allureReport`
 
-run `appium-doctor` to make sure everything is well installed.
+* followed by `gradle allureServe`
 
-Run:
-
-`gradle build` 
-
-* if the tests don't run with the previous steps, do 
-
-`gradle clean test` 
-
-* once the tests stop running, run 
-
-`gradle allureReport`
-
-* followed by 
-
-`gradle allureServe`
-
-There will be a URL to a local server on the terminal, all you need to do is open that URL on any browser and you'll see a nice report from Allure.
+After that there will be a URL shown on the terminal to a local server, all you need to do is open that URL on any browser and you'll see a nice report from Allure.
 
 ## Issues
 
-* As you can see on this videos [1](https://drive.google.com/file/d/1zKkd0kYi48wlp2OPbTBTSDjagILv5SYU/view?usp=sharing) and [2](https://drive.google.com/file/d/1j8KqoyVDv2xIJQ1Njq2bciymzIU1YSTu/view?usp=sharing) the app doesn't allow us to login to the main dashboard so it's pretty much useless. 
+* As you can see on videos [one](https://drive.google.com/file/d/1zKkd0kYi48wlp2OPbTBTSDjagILv5SYU/view?usp=sharing) and [two](https://drive.google.com/file/d/1j8KqoyVDv2xIJQ1Njq2bciymzIU1YSTu/view?usp=sharing), the app doesn't allow us to login to the main dashboard so it's pretty much useless. 
  I was able to do it with Appium because the numbers were still visible to the tool, but not to the human eye.
 
 * I don't really understand what you mean by:
@@ -155,7 +145,7 @@ On my current company our apps communicate with a mySql db and Firebase realtime
 
 ## Improvements to my test
 
-* Put log messages on every stop so they show on Allure to guide us through the fails
+* Put log messages on every step (click, assert, send keys) so they show on Allure to guide us through the fails
 * Add screenshots on fails
 * Add tags to Allure like `login group` or `high priority` , etc...
 * For some reason the report says 6 tests where there are only 3...
@@ -171,6 +161,11 @@ On my current company our apps communicate with a mySql db and Firebase realtime
 ## Improvements to the app
 
 * Everything :D
-The app is really bad. The UI is horrible and the UX even worse. It should follow the platform's design guidelines.
 
-* IDs on the app. It was very hard finding good ids to create good selectors. We should ask the developers to give us ids.
+The app is really bad. 
+
+The UI is horrible and the UX even worse. It should follow the platform's design guidelines.
+
+* IDs on the app
+
+It was very hard to find good ids to create good selectors. We should ask the developers to give us ids.
