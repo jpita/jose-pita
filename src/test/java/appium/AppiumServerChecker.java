@@ -14,16 +14,12 @@ public class AppiumServerChecker {
 
     public static void startAppiumServerWithEmulator(String emulatorName) {
         service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .withArgument(new ServerArgument(){
-                    public String getArgument() {
-                        return "--avd";
-                    }
-                }, emulatorName));
+                .withArgument(() -> "--avd", emulatorName));
 
         service.start();
     }
 
-    public static void startAppiumServer(URL appiumServerURL) throws Exception {
+    public static void startAppiumServer(URL appiumServerURL) {
         try {
             if (!isAppiumRunning(appiumServerURL)) {
                 service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder());
@@ -46,9 +42,9 @@ public class AppiumServerChecker {
 
 
     private static Boolean isAppiumRunning(URL server_url) throws Exception {
-        final URL status = new URL(server_url + "/sessions");
+        final URL url = new URL(server_url + "/sessions");
         try {
-            new UrlChecker().waitUntilAvailable(1, TimeUnit.MILLISECONDS, status);
+            new UrlChecker().waitUntilAvailable(300, TimeUnit.MILLISECONDS, url);
             return true;
         } catch (UrlChecker.TimeoutException e) {
             return false;
